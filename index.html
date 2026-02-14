@@ -1,0 +1,542 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Princess 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align:center;
+  overflow-x:hidden;
+  background: linear-gradient(135deg, #ffe0f0, #ffd6f5, #e6ccff);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  padding: 50px 20px;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 55px;
+  color: #d63384;
+  text-shadow: 0 0 15px rgba(255,105,180,0.5);
+}
+
+.subtitle {
+  color: #a61e4d;
+  margin-bottom: 30px;
+}
+
+.letter {
+  background: rgba(255, 240, 246, 0.95);
+  padding: 30px;
+  border-radius: 25px;
+  width: 85%;
+  max-width: 600px;
+  margin: 30px auto;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  border: 3px dashed #ff85c0;
+}
+
+.letter p {
+  margin-bottom: 15px;
+  color: #6a0572;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background-color: #ff4d88;
+  color: white;
+}
+
+#yesBtn:hover {
+  background-color: #ff0066;
+  transform: scale(1.1);
+}
+
+#noBtn {
+  background-color: #ffc2d1;
+  color: #6a0572;
+  position: relative;
+}
+
+.hiddenMessage {
+  display: none;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #d63384;
+  font-weight: bold;
+}
+
+/* Memories Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 15px 35px rgba(255,105,180,0.5);
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  bottom: -300px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff0f6;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 2px solid #ff85c0;
+  transition: 0.8s ease;
+  width: 300px;
+}
+
+.popup.show {
+  bottom: 50px;
+}
+
+/* Floating hearts */
+.floating-heart {
+  position: fixed;
+  font-size: 20px;
+  animation: floatHearts 6s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(100vh); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="Avalukena.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+  <h1>To My Thangaaaa Mayiluuuuu 👑💖</h1>
+  <div class="subtitle">My Queen. My World. My Forever.</div>
+
+  <div class="letter">
+    <p>My Chikkuuuuu,</p>
+    <p>You are the magic in my story and the sparkle in my world. From the moment you came into my life, everything started feeling brighter, beautiful, and more meaningful.</p>
+
+    <p>Your smile melts my worries, your laughter is my favorite sound, and your presence feels like home to my heart.</p>
+    
+    <p>Every Memory we create becomes a treasure I hold close to my heart, and every moment with you feels like a blessing I never want to lose.</p>
+    
+    <p>I promise to cherish you like royalty, stand by you in every season of life, protect your heart, and love you more with each passing day.</p>
+    
+    <p>No matter where life takes us, I will always choose you — today, tomorrow, and forever. 🤍</p>
+    
+    <p><strong>Your Chikkiiiii 🤍</strong></p>
+  </div>
+
+  <h2 style="color:#a61e4d;">Princess Shriiiiii ,</h2>
+  <h2 style="color:#d63384;">Will you be my Valentine FOREVER Kuttu? 💕</h2>
+
+  <button id="yesBtn">Yes 💖</button>
+  <button id="noBtn">Mostly Yes 🙈</button>
+
+  <div class="hiddenMessage" id="loveResponse">
+    Ennaku Theriyum Thango ne Yes dhan solluvanu, because you don't have any options alagiiii other than YES! 👑💘
+  </div>
+
+  <div style="margin-top:40px;">
+    <button onclick="scrollToMemories()" 
+    style="background:#ff66a3; color:white; font-size:18px; padding:14px 30px; border-radius:30px; border:none; cursor:pointer;">
+      💕 Lets See Our Beautiful Memories di Maaaaa 💕
+    </button>
+  </div>
+
+</div>
+
+<section id="memories" style="padding:80px 20px; margin-top:60px;">
+  
+  <h1>Our Beautiful Memories 👑💖</h1>
+  <p style="color:#a61e4d; margin-bottom:40px;">
+    Every picture tells a story of us.
+  </p>
+
+  <div class="gallery">
+    <img src="p1.jpg">
+    <img src="p2.jpg">
+    <img src="p3.jpg">
+    <img src="p4.jpg">
+    <img src="p5.jpg">
+    <img src="p6.jpg">
+    <img src="p7.jpg">
+    <img src="p8.jpg">
+    <img src="p9.jpg">
+    <img src="p10.jpg">
+    <img src="p11.jpg">
+    <img src="p12.jpg">
+    <img src="p13.jpg">
+    <img src="p14.jpg">
+    <img src="p15.jpg">
+    <img src="p16.JPG">
+  </div>
+
+</section>
+
+<div class="popup" id="surprisePopup">
+  <h3>💌 A Little Surprise</h3>
+  <p>You are my once-in-a-lifetime kind of love di en Thanga pullaaa. 💖</p>
+</div>
+
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const loveResponse = document.getElementById("loveResponse");
+const bgMusic = document.getElementById("bgMusic");
+const popup = document.getElementById("surprisePopup");
+
+let musicStarted = false;
+
+document.addEventListener("click", () => {
+  if (!musicStarted) {
+    bgMusic.play();
+    musicStarted = true;
+  }
+});
+
+yesBtn.addEventListener("click", () => {
+  loveResponse.style.display = "block";
+  createHearts();
+});
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+function createHearts() {
+  for(let i=0;i<30;i++){
+    const heart = document.createElement("div");
+    heart.innerHTML = "💗";
+    heart.classList.add("floating-heart");
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20+15)+"px";
+    heart.style.animationDuration = (Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+  }
+}
+
+function scrollToMemories() {
+  document.getElementById("memories").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+let popupShown = false;
+window.addEventListener("scroll", () => {
+  if (!popupShown && window.scrollY > 150) {
+    popup.classList.add("show");
+    popupShown = true;
+  }
+});
+</script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Princess 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align:center;
+  overflow-x:hidden;
+  background: linear-gradient(135deg, #ffe0f0, #ffd6f5, #e6ccff);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  padding: 50px 20px;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 55px;
+  color: #d63384;
+  text-shadow: 0 0 15px rgba(255,105,180,0.5);
+}
+
+.subtitle {
+  color: #a61e4d;
+  margin-bottom: 30px;
+}
+
+.letter {
+  background: linear-gradient(145deg, #fff0f6, #ffe0f3);
+  padding: 30px;
+  border-radius: 25px;
+  width: 85%;
+  max-width: 600px;
+  margin: 30px auto;
+  box-shadow: 0 15px 40px rgba(255,105,180,0.2);
+  border: 3px dashed #ff85c0;
+}
+
+.letter p {
+  margin-bottom: 15px;
+  color: #6a0572;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background: linear-gradient(45deg, #ff4d88, #ff99c8);
+  color: white;
+  font-family: 'Parisienne', cursive;
+  font-size: 20px;
+}
+
+#yesBtn:hover {
+  transform: scale(1.1);
+}
+
+#noBtn {
+  background: linear-gradient(45deg, #ffc2d1, #ff99c2);
+  color: #6a0572;
+  font-family: 'Parisienne', cursive;
+  font-size: 20px;
+  position: relative;
+}
+
+#memoriesBtn {
+  background:#ff66a3;
+  color:white;
+  font-family: 'Parisienne', cursive;
+  font-size:18px;
+  padding:14px 30px;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#memoriesBtn:hover {
+  transform: scale(1.05);
+}
+
+.valentineText {
+  font-family: 'Parisienne', cursive;
+  font-size: 32px;
+  color: #d63384;
+  margin: 15px 0;
+  text-shadow: 1px 1px 5px #ffc2e0;
+}
+
+.hiddenMessage {
+  display: none;
+  margin-top: 20px;
+  font-size: 24px;
+  line-height: 1.6;
+  color: #fff1f5; /* softer white/pink */
+  font-weight: bold;
+  font-family: 'Great Vibes', cursive;
+  background: linear-gradient(145deg, #ffb3c6, #ff99d6); /* soft pink gradient */
+  padding: 35px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(255,105,180,0.3); /* softer shadow */
+  border: 2px solid #ff66a3;
+  animation: popIn 1s ease forwards;
+  text-shadow: 0 0 5px #ffd6e8; /* soft text shadow instead of bright neon */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Pop-in animation for the message */
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Floating hearts */
+.floating-heart {
+  position: fixed;
+  font-size: 20px;
+  animation: floatHearts 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(100vh); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="Avalukena.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+  <h1>To My Thangaaaa Mayiluuuuu 👑💖</h1>
+  <div class="subtitle">My Queen. My World. My Forever.</div>
+
+  <div class="letter">
+    <p>My Chikkuuuuu,</p>
+    <p>You are the magic in my story and the sparkle in my world. From the moment you came into my life, everything started feeling brighter, beautiful, and more meaningful.</p>
+
+    <p>Your smile melts my worries, your laughter is my favorite sound, and your presence feels like home to my heart.</p>
+    
+    <p>Every Memory we create becomes a treasure I hold close to my heart, and every moment with you feels like a blessing I never want to lose.</p>
+    
+    <p>I promise to cherish you like royalty, stand by you in every season of life, protect your heart, and love you more with each passing day.</p>
+    
+    <p>No matter where life takes us, I will always choose you — today, tomorrow, and forever. 🤍</p>
+    
+    <p><strong>Your Chikkiiiii 🤍</strong></p>
+  </div>
+  <div class="valentineText"><p><h2>Princess Shriiiiii ,</h2></p>Will you be my Valentine FOREVER Kuttu? 💕</div>
+
+  <button id="yesBtn">YES 💖</button>
+  <button id="noBtn">Maybe YES 🙈</button>
+
+  <div class="hiddenMessage" id="loveResponse">
+    💖✨ My Thangamaeeeeee ✨💖<br><br>
+    Even miles apart, my heart beats only for you! 💘💘<br>
+    Every message, every memory, every thought of you makes me feel like you’re right here in my arms. 🌹💫<br>
+    I miss your smile, your laughter, and the way your love lights up my world. 🌟<br>
+    No distance can ever lessen how much I adore you. I promise to love you through every mile, every moment, and every dream we share. 👑💞<br><br>
+    🌸 Forever yours, waiting to hold you close again 💖👑
+
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="memories.html">
+      <button id="memoriesBtn">
+        💕 Lets see Our Beautiful Memories together di alagiiiii 💕
+      </button>
+    </a>
+  </div>
+
+</div>
+
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const loveResponse = document.getElementById("loveResponse");
+const bgMusic = document.getElementById("bgMusic");
+
+let musicStarted = false;
+
+document.addEventListener("click", () => {
+  if (!musicStarted) {
+    bgMusic.play();
+    musicStarted = true;
+  }
+});
+
+yesBtn.addEventListener("click", () => {
+  loveResponse.style.display = "block"; // Show the romantic message
+  createHearts(); // Start floating hearts in the background
+});
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// Floating hearts function
+function createHearts() {
+  for(let i=0;i<15;i++){ // 15 hearts
+    const heart = document.createElement("div");
+    heart.innerHTML = "💗";
+    heart.classList.add("floating-heart");
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*25+20)+"px";
+    heart.style.animationDuration = (Math.random()*6+6)+"s"; // slower float
+    document.body.appendChild(heart);
+    // Hearts stay forever
+  }
+}
+</script>
+
+</body>
+</html>

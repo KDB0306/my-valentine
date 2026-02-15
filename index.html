@@ -300,13 +300,49 @@ window.addEventListener("scroll", () => {
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
-body {
+/* body {
   font-family: 'Poppins', sans-serif;
   text-align:center;
   overflow-x:hidden;
   background: linear-gradient(135deg, #ffe0f0, #ffd6f5, #e6ccff);
   background-size: 400% 400%;
   animation: gradientMove 12s ease infinite;
+} */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align:center;
+  overflow-x:hidden;
+  background: linear-gradient(135deg, #ffebf0, #ffe0f5, #ffd6f0, #ffe6ff);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  position: relative;
+}
+
+/* Add decorative elements */
+body::before {
+  content: '💕';
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  font-size: 40px;
+  opacity: 0.3;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+body::after {
+  content: '💖';
+  position: fixed;
+  bottom: 10%;
+  right: 8%;
+  font-size: 50px;
+  opacity: 0.3;
+  animation: pulse 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.5; }
 }
 
 @keyframes gradientMove {
@@ -442,10 +478,65 @@ button {
   50% { opacity: 1; }
   100% { transform: translateY(-10vh); opacity: 0; }
 }
+
+.petals-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  font-size: 35px;
+  opacity: 0.6;
+  animation: fall 12s linear infinite;
+}
+
+@keyframes fall {
+  0% { 
+    transform: translateY(-10vh) rotate(0deg); 
+    opacity: 0; 
+  }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { 
+    transform: translateY(110vh) rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+.petal:nth-child(1) { left: 10%; animation-delay: 0s; }
+.petal:nth-child(2) { left: 25%; animation-delay: 2s; }
+.petal:nth-child(3) { left: 40%; animation-delay: 4s; }
+.petal:nth-child(4) { left: 60%; animation-delay: 1s; }
+.petal:nth-child(5) { left: 75%; animation-delay: 3s; }
+.petal:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+/* Make container content visible */
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 50px 20px;
+}
+
 </style>
 </head>
 
 <body>
+
+  <div class="petals-container">
+    <div class="petal">🌸</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌸</div>
+  </div>
 
 <!-- <audio id="bgMusic" loop>
   <source src="Avalukena.mp3" type="audio/mpeg">

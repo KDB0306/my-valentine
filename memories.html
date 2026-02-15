@@ -24,6 +24,60 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+.title {
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  color: #d63384;
+}
+
+.memory-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+.photo {
+  background: white;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  transform: rotate(-3deg);
+  transition: 0.4s;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.photo:hover {
+  transform: scale(1.1) rotate(0deg);
+  z-index: 10;
+}
+
+.quotes-btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  background: linear-gradient(45deg, #ff66b2, #ff99cc);
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.quotes-btn:hover {
+  transform: scale(1.1);
+}
+
 h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 55px;
@@ -95,6 +149,39 @@ h1 {
 .popup.show {
   bottom: 50px;
 }
+
+.memory-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+}
+
+.photo {
+  background: white;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  transform: rotate(-3deg);
+  transition: 0.4s;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.photo:hover {
+  transform: scale(1.1) rotate(0deg);
+  z-index: 10;
+}
+
 </style>
 </head>
 
@@ -103,7 +190,7 @@ h1 {
 <h1>Our Beautiful Memories 👑💖</h1>
 <p class="subtitle">Every picture is a piece of our love story.</p>
 
-<div class="gallery">
+<!-- <div class="gallery">
         <img src="p1.jpg">
         <img src="p2.jpg">
         <img src="p3.jpg">
@@ -120,11 +207,57 @@ h1 {
         <img src="p14.jpg">
         <img src="p15.jpg">
         <img src="p16.jpg"> 
+</div> -->
+
+<!-- <h1 class="title">Our Beautiful Memories 📸💖</h1> -->
+
+<div class="memory-container">
+  <div class="photo"><img src="p1.jpg"></div>
+  <div class="photo"><img src="p2.jpg"></div>
+  <div class="photo"><img src="p3.jpg"></div>
+  <div class="photo"><img src="p4.jpg"></div>
+  <div class="photo"><img src="p5.jpg"></div>
+  <div class="photo"><img src="p6.jpg"></div>
+  <div class="photo"><img src="p7.jpg"></div>
+  <div class="photo"><img src="p8.jpg"></div>
+  <div class="photo"><img src="p9.jpg"></div>
+  <div class="photo"><img src="p10.jpg"></div>
+  <div class="photo"><img src="p11.jpg"></div>
+  <div class="photo"><img src="p12.jpg"></div>
+  <div class="photo"><img src="p13.jpg"></div>
+  <div class="photo"><img src="p14.jpg"></div>
+  <div class="photo"><img src="p15.jpg"></div>
+  <div class="photo"><img src="p16.jpg"></div>
 </div>
+
+<div style="text-align:center; margin-top:40px;">
+  <a href="quotes.html" class="quotes-btn">Read Our Love Quotes 💌</a>
+</div>
+
 
 <a href="index.html">
   <button class="backBtn">💖 Back to My Love Letter 💖</button>
 </a>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="Avalukena.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  window.addEventListener("load", function () {
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+      music.currentTime = savedTime;
+    }
+  });
+
+  window.addEventListener("beforeunload", function () {
+    localStorage.setItem("musicTime", music.currentTime);
+  });
+</script>
+
 
 <!-- Surprise popup -->
 <div class="popup" id="surprisePopup">
@@ -148,6 +281,26 @@ document.getElementById("closePopup").addEventListener("click", () => {
   popup.classList.remove("show");
 });
 </script>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="Avalukena.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+   music = document.getElementById("bgMusic");
+
+  window.addEventListener("load", function () {
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+      music.currentTime = savedTime;
+    }
+  });
+
+  window.addEventListener("beforeunload", function () {
+    localStorage.setItem("musicTime", music.currentTime);
+  });
+</script>
+
 
 </body>
 </html>

@@ -447,9 +447,13 @@ button {
 
 <body>
 
-<audio id="bgMusic" loop>
+<!-- <audio id="bgMusic" loop>
+  <source src="Avalukena.mp3" type="audio/mpeg">
+</audio> -->
+<audio id="bgMusic" autoplay loop>
   <source src="Avalukena.mp3" type="audio/mpeg">
 </audio>
+
 
 <div class="container">
 
@@ -537,6 +541,24 @@ function createHearts() {
   }
 }
 </script>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  // Save current time before leaving page
+  window.addEventListener("beforeunload", function () {
+    localStorage.setItem("musicTime", music.currentTime);
+  });
+
+  // Resume from saved time
+  window.addEventListener("load", function () {
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+      music.currentTime = savedTime;
+    }
+  });
+</script>
+
 
 </body>
 </html>

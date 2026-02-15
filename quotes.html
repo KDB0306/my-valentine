@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Love Quotes 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f5, #ffd9ec);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 55px;
+      color: #ff3399;
+      margin-top: 40px;
+    }
+
+    .quotes-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px;
+      gap: 30px;
+    }
+
+    .quote-card {
+      background: white;
+      width: 300px;
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(255,105,180,0.2);
+      font-size: 18px;
+      color: #d63384;
+      transition: 0.4s;
+      position: relative;
+    }
+
+    .quote-card::before {
+      content: "💖";
+      position: absolute;
+      top: -15px;
+      right: -10px;
+      font-size: 25px;
+    }
+
+    .quote-card:hover {
+      transform: scale(1.08);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 40px;
+      padding: 15px 30px;
+      background: linear-gradient(45deg, #ff66b2, #ff99cc);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Words From My Heart 💖</h1>
+
+<div class="quotes-container" id="quotesContainer"></div>
+
+<a href="memories.html" class="back-btn">Back to Memories 💕</a>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="Avalukena.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // ======== PASTE YOUR QUOTES BELOW =========
+  const rawQuotes = `
+
+Thango my love for you is like the love of a mother towards their child, like the fathers care to their daughters, like how dogs love their puppies, how sea loves the sand, like how the animals loves the nature, like how the phone loves the charger, like how plants love the soil, like how the cup loves its saucer, like how athletics loves their sports like how the space loves the world, like how a pen needs a paper, like how hours doesn’t exist without seconds, like how my chain loves the neck, like how stars love the moon,like how oxygen loves humans, like how teachers love their students, like how music love the instruments,like how lights love their room,like how cameras love pics,like how bees loves flowers, like how you love biriyani, like how you love our parents, like how you love me and finally like how i love you….. so like how these things mentioned below will never live without one and another like that my love will never live without you my thangamaeeeeee😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+
+
+
+Thango my love is like the clouds dii like when you look at it, it looks beautiful from top like how my love to you ,and sometimes it protects the people from the sun by providing a shadow like how I’ll protect you from all the obstacles that you go through and keep you sooo safe and i left nothing bad happen to my baby and ill be her protector, and finally when you look at the cloud and it looks soo dark and when 2 clouds collide each other then the beautiful rain comes like that when my heart is full of love like the cloud and when you too came with same love like the other cloud and when we both collide then the magic happened like it poured our loves for each other like the beautiful rain poured from the sky😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🫂🫂😘😘😘😘😘😘😘😘😘😘
+
+
+
+
+
+Thango my love is like the iPhone wallpaper of mine ,you know la each time i turn on my phone a new memorable picture will come and cherish me with the beautiful memories of us like that each and every beautiful picture has a beautiful memory……. like that my love want to create more and more beautiful memories with you for the rest of our lives and keep on cherishing it till our last breaths in this world and let’s continue to make memories in heaven or in another whole new universe and love you for eternity thangooooo kuttyy😘😘😘😘😘😘😘😘 love youuuuu sooooooo much in all the universe thangooo and ill make sure you’re mine in all the universe tooo my showing all the love you deserve kutty😘😘😘😘😘😘 ummmaaaaaaaaaaaa😘😘😘😘😘😘😘😘😘😘😘😘😘😘
+
+
+
+
+Kuttuuu my love is like a coin kutty which has 2 sides,one side the courageous lion and other side a soft flower, like that my love will protect and keep you safe from everyone and makes you feel safe like home thangoo and on the other hand my love will make things which makes you happy and do anything in this world to make you happy and be your calm and cool ,supportive and soft caring purushan like the flower side😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂 ummmaaaaaaaaaa pondattiiiiiii😘😘😘😘😘😘😘😘😘😘😘😘
+
+
+
+
+Kuttuuuuuu my love is like the world thangoo like you know world is where all ppl live soo happily and world is the one which keeps us alive and it rotates itself to give us both a beautiful sunrise and also a beautiful beautiful moon in the dark like that my love will always always be around you no matter what happens and it rotates with you in all your situations and it will gives you comfort and you can always live in my love sooo happily like how ppl live in this world. Because your my world kuttu and ill make sure to protect it at any cost even it costs my life because you’re the one who makes me alive and survive each and every day mayiluuuu…. Without you im nothing like how ppl will be nothing without the world😘😘😘😘😘🥹🥹🥹🥹🫂🫂😭😭😭😭 love you sooo much thangooooo😘😘😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂
+
+
+
+
+Thanga pulla my love is like the ice cream kutty like you can always have the craze for my love and you can always have different flavours like my love has different types ans emotions for you and you can even melt the ice cream and drink as a shake like it still tastes good and the flavours won’t change like that my love for you also won’t never change and last fun fact kuttu like you can always eat ice cream as a snack or after lunch, dinner like you can literally can eat ice cream at any time like how you eat mee😛🫣😘🤤🤤😘😘😘😘😘😘😘😘😘😘😘
+
+
+
+Thangamaeeee my love is like a candle kuttu like you know la candle can make a dark place to light up and make it beautiful and it sacrifices its own life to give us light and it turns into wax. The fact is even though the candle knows that it will die by giving us light… like that my love will make your life soo beautiful dii and it will give you light forever and it will make your life brighter even though it costs everything and ill be your wax kuttu like i will sacrifice anything in this world for you because my purpose is to make you happy and i will provide it at any costs kuttu😘😘😘😘😘😘😘😘😘😘😘 ummmaaaaaaaaaaa😘😘😘😘😘 like short ah sollanona…..na dhan wax and ne dhan fire and you make both our lifes brighten 
+
+
+
+
+Thangamaeeeee my love is like Kovil kuttu like you know la ppl go to Koil for many reasons like for finding their peace or if they want blessings from the god, if they ever feel lonely, if they want something in life, or like if they want to share their burden with the god, when their sad or happy, to share their good and bad news, to be protected from evil eyes, to pray for the ppl they love like that my love will give you all you want kuttu like happiness and peacefulness, if you ever feel lonely you can come to me, if you want to share something you can come to me, and my love will protect you from everything, like we can share both our bad news and good news together, and whenever your heart feels heavy you can always come to me kuttu because my love will take care you from everything diii😘😘😘😘😘 in simple terms na Kovil na adhula ne dhan en saami thangaaa mayiluuuuu🥹🤌😘😘😘😘😘😘😘😘
+
+
+
+Kuttyyyy todays quote will be special dii because my love is like your eyes kuttuuu likeee ohhh my fucking goddddd you have no idea how beautiful eyes you got mannnnnn i just get lost in your eyes di mayiluuuuu like how my love got lost inside you. And thaaa your pupil is that even the moon in your eyesss dii kuttu chaaaa the moon will itself feel jealous of your eye ball diii, and your sclera is made up of these galaxy or what it look gorgeous like my every lasting love and thangoo your eye lid is that those shooting starts damnnnnn its just fit perfectly on your eyes like how my love fit inside you perfectly, and your eyebrows is that made of peacock feathers like my soft love for you diiii😘😘😘😘😘 thango your my world and i love you soooo much dii kuttuuuuuuu😘😘😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂❤️❤️❤️❤️
+
+
+
+
+Thangooooo my love is like flower kuttu like you knows la how beautiful a flower will look and how ppl love it by seeing them like that my love for you will make me beautiful and it makes not just but everyone close to us happy because they admire it like a flower…. And how each petals look exactly the same like perfectly balanced and like that my each and love for you in different ways like caring as a father, caring as a mother, caring as a friend, caring as a husband….. so i will exactly show equal amount of love to all my various love and lastly how a small piece of the seed from the flower will flew away and become an beautiful flower like that our child will grow and become beautiful like us kuttu like literally an another beautiful flower 😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🥹🥹🥹🥹 love you kuttuuuuuu🥹🥹🥹😘😘😘😘😘❤️❤️❤️❤️
+
+
+
+
+Thango my love is like a poem kuttu like you know la how beautiful the poem lines will look and how each and every line has a depth meaning in it and with cute little metaphors, and uk the poet writes poem to express their form of love they have in a person or place,and also when ppl read it they just be mesmerised by it and like that my love in each and every situation will be beautiful and each and every form of love i show will have its own depths and like the poet i have lots and lots of love for you within me and day by day its just gets written in the form of my quote or in the form of kissing you in facetime or like saying love you for infinity times and uk its all soo beautiful for me kuttu and when our parents came to know how we love then probably they just marry us right away and be mesmerised by our love di thanga pullaaa😘😘😘😘😘😘😘😘😘😘😘😘 if my love is like a poem then you’re my poet di kuttu because you make my love in a very beautiful way like the poem😘😘🤌🤌🤌 love you kuttuuuu soooo muchhhhh😘😘😘😘😘 ummmaaaaaaaaa😘😘😘😘😘😘😘😘😘😘😘😘
+
+
+
+Kuttuuuu my love is like AR Rahman songss dii uk laa our beautiful journey also started with his song dhan soo forever grateful to him and for that song and you know laa for past 35years and till day no one can come near his love tracks like its always fresh and its always something new and it always wants us to hear it back irrespective of which time period it came and no one can touch or come near him when it comes to music and he will be proud of himself by giving all the songs and getting oscar awards…..sooo like that my love for you won’t fade away like his songs and it will be everlasting and each and every time my love will make you feel like you’ve been loved new again and even the time passes by my love won’t fade and it will give something new to you all the time and no one can come near me when its loving you because im the only one in this entire world who will give all my love to you no matter what and i can say that proudly kuttu like im sooooo sooooo happy to give all my love to my thanga pulla because she literally deserves each and every bit and im literally sooo much proud of you kuttu like in all things ….and for me you’re the most beautiful award I got and it makes me feel like worth living mayiluuuuuuu😘😘😘😘🤌🤌🤌🤌 ummmaaaaaaaaaa😘😘😘😘😘😘🫶🫶🫶🫶🫶❤️❤️❤️❤️❤️❤️
+
+
+
+
+Oiiii alagiiii my love is like the stars thango like you know la how stars appear in the sky in a most most beautiful way and it makes the shy looks pretty and sparkle at the same time and you can’t count the number of stars in the sky because its just endless thangooo and sometimes you may think there is no stars in the sky but it doesn’t mean it will go it will be in a form of big star like the moon itself…… so like that thangooo my love will always make you beautiful and it makes you happy and also it makes you sparkle every time kuttuuu😘, and like the stars you can’t count how much i love you because its endless thangooo and it beyond that sooo you have no idea how much i love youuu and sometimes you may think my love is not enough but thats not the case I will love youuu like how the moon shines without the stars and makes the whole sky glow thangooo😘😘😘😘😘 in short, if you’re my star and you make me beautiful like how stars make the sky beautiful thango and if you’re the moon then im your cute little star who will admire you thangaaa pullaaaa😘😘😘😘😘😘😘😘 ummmaaaaaaa😘😘😘😘😘
+
+
+
+
+Thanga pullaaa my love is like the back dress you wore yesterday omfgggg u have no idea how beautiful you looked on it, its like you made the saree beautiful kuttu like it was neat, simple and elegant thangooo and more importantly it gave you comfort 🤌🤌❤️❤️ and like that my love is also beautiful kuttu when you feel it and its also not complicated its just simple likee just loveee only loveee nothing else thangooo and the main thing is its you…… i mean your the one who make my love beautiful like how you made the saree beautiful kuttu soooo you’re the reason that makes my love alaguuu and you can feel proud kuttu of my love like how you feel proud wearing the saree and important my love gives you comfort thangooo and it makes you feel home all the time😘😘😘😘😘😘😘😘 in simple terms whatever i give from side its just turn into magic because you’re the person im giving laaa so you’re the magic kutty like you’re the special person who make my everything sooo special😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂
+
+
+
+
+Kuttu today it’s about your love diii because your love to me is like a shooting star you know the occurrence of shooting star is less kuttu because it comes fall from the galaxy as a comet or as a meteor shower soo its usually uncommon to see the shooting stars but when you see it ppl say its a gift that you saw a shooting star and its also consider as a good sign if we see those and if we make a wish at that time ppl say it will happen and for all these years I didn’t believe this myth until you came into my life as a shooting star and made my lifeee sooo beautiful and made it even better than i was like a blessing thangooo because ppl like you and especially only you coming into my life la very very uncommon like the shooting star so you just came into my life and i saw it and made a wish that I want you in my entire life and damn yea it happened and all my wish came true because of you and because of your love thanga pullaaa and finally yea you made me believe that shooting star myth is true kuttu😘😘😘😘🫂🫂🫂. You came into my life like the shooting star and made it beautiful and I prayed for that star to be with myself forever and yea that’s what happening now and its with me happy and safe forever and ever.😘😘😘😘🥹🥹🥹🥹🫂🫂🫂🫂🫂
+
+
+Thangoooo your love is like a dream to me thango like you know why ppl call it dream laaa because in dream only we can imagine whatever we want and sometimes most magical things happen because its a dream and which in reality not at all possible so things which ppl always want or like their deepest desires only come has a dream and for me in real life a dream came and thats you kuttuuu🥹🥹❤️❤️❤️i mean I only thought ppl love me like this in dream only but ig im lucky and blessed because i am literally living in my dream world but in reality sooo that’s something very very special kuttu😘😘😘😘😘 thanks to you thango for making me living my dream and making my dream came true because of  you and your love😘😘❤️❤️. My last wish is I want to be in this dream world with you forever thangooo and have a beautiful cute life with you and with our cute little miniatures🫂🫂😘😘😘😘😘😘😘
+
+
+
+Thangaaaa mayiluuuuuu as you know today quote is about Diwali dhan diii azhagiiiiiii….. so kuttu OUR love is Diwali thangooo uk laa how ppl will wait for the whole year to celebrate this festival because its the most famous beautiful and colourful one kutty. We literally let our inner child out for this festival because our mother will make our favourite dishes and make us happy and we lit the crackers and most importantly we will get the blessings from our parents diiii like that our love also will be celebrated and our parents and close friends will wait for the day for our marriage to see us happy and our love will let our inner childs out because we will be ourselves in our love and that’s the most important one kuttu like it means that we are true to one and another and trust the other person completely. And we will get our parents blessing and be happy for the rest of the life thangooo and our life will be sooo colourful like the nights of Diwali and our parents will enjoy that and feel blessed thango. And most importantly Diwali festival brings our family, relatives and friends close like that our love will make our both the families close and we will enjoy by seeing them sharing each and everything about us. Finally you are my Diwali kuttu because you make my life beautiful and I will always have your blessings and keep you happy for my rest of my life thango❤️❤️😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂 Diwali is not just an festival kuttu its an emotion for the ppl like that our love is also a beautiful and blessed emotion to our both families and that love will make our family strong and irreplaceable kuttuuu😘😘😘😘😘😘😘😘😘😘😘😘 and we will celebrate Diwali not once in a year but always because I have you and that all i want🥹🥹🫂🫂🫂🫂🫂🤌🤌🤌🤌
+
+
+
+Kuttu my love is like the tsunami diii like you know la before tsunami comes there will be a moment of silence and then the water gets sucked into the sea and then it comes like a very huge wave and it will create a huge impact and like that my love at first maybe a silent one which you don’t know but when it comes like a huge wave then ig it will make you a huge impact on you and it make you feel loved all over you and there nothing going back for me and I hope my love created a huge impact on you and it’ll be there like a forever scar I mean a love scar and it will never get down but the chances of the scar getting bigger is a definitely possible kuttu because my love day by day, time by time, second by second it’s getting bigger and bigger kuttu😘😘😘😘😘😘😘 if you’re my natural disaster then I will let you inside me without even a fear and pain kuttuuuu😘😘😘😘
+
+
+
+Thangooo my love is like the Murugar Vel kuttu because you know laaaa nothing can bad happen to us when we have the vel, like its the most powerful weapon that destroys the bad people and bad evils from us and it protects us from all bad things thangooo and it will be always with murugar like that my love will protect you from all the bad people and from all the evil things and ill be your guardian and never let anyone to treat you badly and ill never let anybody in the whole world to make you feel unsafe kutty like me and my love will always protect you and keep you safe from this cruel world like the Murugar’s vel thangoooo….like no matter what ill be on your side and possibly I won’t mind killing them for you kuttu because neenga dhan ennaku important indha life la and for all the other eternity lifes🫂🫂😘😘😘❤️. Neenga dhan en Murugar and na dhan unga vel and na ungala eppovumae protect pannitae irupa kuttu😘😘🫂🫂
+
+
+
+Kuttuuuu my love is like a beautiful pathway to a dense forest kuttuu like you know la how huge a forest will be and in each way there will an excitement inside us when we walk ….like what I would see next nuu that excitement is vera maari feel kutty……like you can see beautiful flowers where bees be on it, huge trees with strong roots, you can see beautiful animals where their mom feed their child and like the clam and beautiful sounds of the chirping birds and a beautiful rainy weather and to top it off fresh fruit to eat and moreee beautiful things will be there in our paths. Like that my love for you will be dense and it will be strong as the huge tree roots like no one can touch or break it and my love is also beautiful like the flowers were the bees eat the honey from and how beautiful the mother animals feed their children and ill also protect you like how they protect their babies and my love will make you calm like the birds chirping and also cozy as the forest weather and i will always taste good like the fresh fruits kuttu and you can eat me fullyyyyy😛 and moreover as I said each path in forest excites us like whats next nuu like that my love also excites you everyday and make you keep guessing like what next beautiful things he is gonna to do nuuu😘😘😘😘😘😘. In short ill be your beautiful forest kutty and you can keep on exploring my love and each time it will give you more love and it never disappoints you kuttuuu 😘😘😘😘😘😘🥹🥹😘🫂🫂🫂🫂🫶🫶🫶
+
+
+
+Kuttu my love is like a screen protector diii like you know laaa the screen protector protects the phone from all the things like it protects the screen from dust, water and all the tiny particles and most importantly it will give you assurance that your phone is safe with it and it also makes the phone screen smooth to operate and most importantly if you put down the phone the first thing to break is the screen protector like it shatters itself to keep the phone safe……. Like that kuttuu i will protect you from all the bad things like the screen protector and my love will always assure you that you can trust me and relay on me on any situation no matter what….like you literally safe with me kuttuu and i will protect you like that and most importantly if anything bad things comes to you or some disturbed thing i will be first one to take it and I won’t even allow it near you kuttu like whatever bad comes i will be the first one to get shattered and no matter what i will protect you at any cost even it costs my life thangamaeeee because you’re the only one important to me in this whole world kuttuu and unnakaga na enna venalo seiyaaaa🫂🫂😘😘😘. If your the phone then ill be your screen protector kuttu and i will never let anything happen to you i promise diii😘😘😘😘😘😘😘😘
+
+
+
+Mayiluuuu your love to me is like the Heart thangooo obviously no one in this world will live without their heart like heart plays the major role in our body like it pumps the blood to all the parts of the body and without the blood no parts will perform their function properly and they will collapse if the heart doesn’t perform well….. like that I won’t live in this world without your love like how humans won’t live without their heart and you play the major role in my life in each and every situation kuttu and because of you only i perform good in all terms and without you my life will collapse thango and leave it to nothing. You’re the reason im alive and breathing the air thangamaeeee😘😘😘😘😘😘. Im just the body thango and you’re my heart and without you im just a person with flesh and bones🥹 because your love pumps me and make me alive everyday thangoooo😘😘😘😘😘😘😘😘😘
+
+
+
+Kuttyyyyyy your love is like the alphabet’s thangamaeeeeee like you know laaa without it we can’t even make a word or sentence like when we combine 2 or more alphabets only we get a meaningful word and it makes sense and obviously without it nothing can be possible written or told thangoo like beauty is that when we merge 2 or more sentences then only it gives a proper meaning kuttu…… like that your love only makes each and every bit of my love meaningful and make it understandable thango and when i break down or something you the one who put me make into pieces and form me like a word and make it beautiful thango and without you my love won’t even make sense diii…. sooo you are the beauty who merges my love into a single piece and make it worth living 😘😘😘😘😘😘If my love is like alphabets then you’re the one who make it as a word or sentence and give it a meaning thanga pullaaa😘😘😘😘😘😘😘
+
+
+
+Mayiluuuu my love is like how the King treats their daughters like I mean literally Princess ………like obviously every king in this world would loves their Princess because she will the one who is lucky for them and who they cared soo much for and to them the king wouldn’t allow any any trouble near them and gives unconditional love to them and what not kuttu like they’ll do anything for their daughters happiness because that’s their beautiful treasure and they will give selfless love towards them. Like that my love for you will be unconditional like how the kings love their daughter and I will take care like you a born baby everyday and keep you safe and protected from all the troubles and you’re my lucky charm thangooo and omg you’re literally making me proud every day thanga pulla and you’re a strong warrior thangamaee and you just don’t know it di and ill do anything in this world to see you happy kutty and i will give all my selfless love to you and make you drown in it😘😘🫂🫂🫂🫂😘❤️❤️❤️❤️❤️❤️. If im the king then your my Princess kuttuuu and i will do anything in this world to make you happy and protect you at any costs
+
+
+
+Thangaa pulla our love is like a book kuttuu like you know la a book contains may chapters and each chapter has a beautiful ending and continuation to the next one and each and every chapter have beautiful memories and moments to cherish and not only happiness but it also has sadness in it, many confusions, fights, love, forgiveness, caring, protective and combines all emotions in it and every chapter excites us what’s in the next chapter nu. Like that my love for you also has many chapters and each chapter will have beautiful moments to cherish and look back thangamaeee😘😘 like each chapter have their own phases like we have fights, confusion, sadness, happiness like all combined and what makes it interesting is like how we come through all of this together and start oru new chapter sooo each and every chapter of my love may vary and have different emotions but the love remains constant in all the chapters thangooo like the major content is love, so whatever may happen in a chapter but at the end we know we are forever each other and we have each other’s back so that leds us to lead a new phase that is chapter in life. Next phase of our life is Family dhan kuttu that is marriage, family outings, dinners with friends and family and our honeymoon trips and omggg we have a lot to do thangameee😘😘😘😘😘 and after that a new chapter opens with oru cute little miniature one suriyan like you and one nila like me and I can’t wait for that chapter to begin diiii alagiiii🥹🥹🥹😘😘😘😘😘🫂🫂and many more chapters to come kuttu soo buckle up dii because its gonna be a hell of a ride for us which will have fun filled memories till end. Like that our love has many chapters and when each phase ends an another beautiful one opens and excites us even more to lead our lives kuttu😘😘😘😘😘 as i mentioned below my love you for remains constant and keeps on increasing with those chapters and a slight change is that a book has a end but for us there is no end till the end of life and we keep on growing together and building our own family together and make everyone soo proud di alagiiii😘😘😘😘. If im the book then your are the person who writes each and every lines in it and make itt moreeee and moreeee beautiful diii kuttuu paapuuu😘😘😘😘😘😘😘😘😘😘😘
+
+
+Kuttu your love is like the mayiluuuu kuttu like literally mayiluuu di because obviously each and every mayilu looks bloody gorgeous like you and when they open their feathers fullyyy omggggg uk la how beautiful they will be and their each and every features will be soft, their voice will be like something sweet pouring in our ears because its that much sweet and its also murugar’s favourite bird and he rides with it. Like that you love is sooo beautiful that it literally changed my life and made it amazing and when you show all the care and love omg it literally feels like looking the mayilu feathers fully because its as gorgeous as it is and your love makes me soft as a person and your love completely changed me thangoooo. Your voice omg its as sweet as mayilu diii enn mayiluuuuuuuu
+And obviously we love murugar and so does he loves you kuttuuu like how he loves his mayilu dii alagiiiii😘😘😘😘😘. If you’re my murugar then ill be your mayiluu and ill be your rider and show you all around the world thanga pullaaa😘😘😘😘🫂🫂🫂🫂
+
+
+
+Kuttu your love is like the crayon and my love is like the drawing book dii like ppl enjoy to colour the book with their crayons laaa because crayons are the one which makes the white colour book into colourful and its like giving birth like that your love painted my white heart and made it sooo colourful and beautiful dii thangoooo😘😘😘😘😘😘like literally your love gave me life dii en saamy. If im the drawing book then you’re the crayon because you make me colourful and beautiful in all ways and makes be alive😘😘😘😘😘🫂🫂🫂🫂🫂🫶🫶🫶🫶🫶
+
+
+
+
+Thangamaeee my love is like sunrise na then your love is like sunset kuttu like each has their own beauties alagiii like watching sunrise gives us a morning boost like it gives us energy to carry forward that day like that my love will carry forward you to places where you can just have happiness alone just happiness and it will always gives your energy and it won’t make you bored or sad thangoooo. Then you’re like a sunset kuttu because the most beautiful time of the day will be watching a sunset because the sky will turn into dark red and when we see the reflection in the beach omggg literally an art alagiii like youuu because your love makes me sooo beautiful like the sunset because you’re my beautiful sunset and i can watch you for literally infinity times without even getting bored alagiiiiii😘😘😘😘😘😘😘😘😘🤌🤌🤌❤️❤️❤️. Literally your an art kuttu who made my heart beautiful ❤️❤️😘😘😘❤️🤌🤌🤌🤌
+
+
+
+Thangooo my love is like the coffee diiii omggg you know la how crazy im addicted to coffee andha maari…… illa adhaa vidaaa infinity times im addicted to you and my love addicted to you kuttuuu like literally soo sooooo soooooo crazy love i have for you dii alagiiiii😘😘😘😘😘 and before and all without coffee my day won’t start but now you should start my dayy and then aprm dhan coffee yallam because you’re the first person i need when i woke up and before i go to sleep and in all time i need you kuttu🥹🥹🫂🫂🫂. Coffee contains caffeine thango you know la which gives us energy and it won’t make us sleep like that my love will give you energy all day in morning and in night it won’t make you sleep either 🫣😛
+And my all time favourite coffee will always and forever will be YOURS dhan alagiiii😛😛😛🤌🤌🤌😘😘😘🫣🫣🫣. If coffee is like a drug then you’re my drug which i will get addicted to for million times and feels like its not enough 😘😘😘😘😘😘😘😘🫂🫂🫂🫂
+
+
+
+Thanga pulla my love is like the colour white kutty like you know la white colour always resembles for peace and the colour itself an beauty thangoo because as you mentioned yesterday white colour gives an elegant look and at the same time it looks simple, neat and more beautiful. Like that my love will also give you peace kuttu and make youu even more beautiful and my love is not that much complicated di its just simple and neat like just pure love unga mela avalodhan alagii😘😘😘😘. If you’re in many colours then i like to be your white one kuttu because its simple, elegant and most importantly it gives peace and makes like beautiful😘😘😘😘😘😘🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️
+
+
+
+Alagiiiiii today my love is like YOU diii like you have no idea how beautiful you are and how much you mean to me in this world, i mean like i can talk about you till my last breath because that much i love you and kuttu maa neenga rombo rombo azhagu di. Your care, your love, your character, your affection, your cuteness, your happiness, your sadness, your supportiveness, your charisma, your virtual kisses, your voice, your presence, your virtual hugs, your protectiveness, your cute little angry moments, your smile, your hair, your eyes, your mood swings, your personality, your pride, your childish attitude, your godness, your soft side and what not dii thanga pullaaa yallamae yallamaeee basically as a whole neenga rombo rombo azhagu dii kuttu maaa. And ungaluku munnadi na kaamirura paasam la kammi dhan dii kuttu because you have soo much love for me and im just blessed to have you as my pondattiiii in this era🤌😩😘.  Literally you changed me thangamaeee and i am forever grateful to you because im loving myself now by loving you diii😘😘😘😘😘 like im soo sooo sooo happy di kuttu because of your love, care and affection and feeling blessed. Day by day loves for you keeps on increasing diiii. Unga nalla manasuku neenga eppovumae rombo rombo nalla irupinga alagiiiiiii and murugar will always be with you kuttuuu maa and beside him ill always be there for you no matter what. So as I mentioned in first line that my love is like YOU nu sonnala so…..which means the things I mentioned about you in the before lines describes how beautiful you are and how beautiful your soul is nu….. like that much beautiful my love is kuttu. Like in simple terms en love ungala maariyae rombo rombo azhagu nu soldra bujjiiii kuttuuu😘😘😘😘😘😘😘😘. If you want to know how beautiful you are then just feel and imagine my love di because it is as beautiful as you kuttuuu because My LOVE IS ‘YOU’ dhan alagiiiii😘😘😘😘😘😘😘😘😘😘😘😘😘😘🥹😘😘🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🥹🥹🥹🥹🥹🥹
+
+
+
+
+Kuttu your love is like a miracle to me di mayiluuu like ppl will say la life la miracle will happen and no one knows like how it will be or how it will feel nu but without knowing to them it will happen at right time like that in my life miracle did happen and thats YOU and your love dii alagiiiii…… like i can now feel the miracle in me and omg this feeling is just beyond the words kuttu like you can’t even express or describe it because this feeling is something very very personal and close to heart di thangoo😘😘😘😘😘. So now i believe that miracles do happen in life like how your love happened to me🫂🫂🫂🫂🫂. You’re my one and only beautiful miracle that is happening and happened in my whole life and it literally changed me into something soo beautiful thangaa pullaaa 😘😘😘😘😘😘😘😘😘🤌🤌🤌🤌❤️❤️❤️❤️❤️❤️
+
+
+
+Kuttu maaa your love is like breathing to me diii like you know la how important breathing is for a human life and without it their dead and we should breathe continuously to live and if we stop is for just few seconds also thats it we are gone…… like that i am breathing your love every second and it makes me alive di alagii and without it im gone kuttu maaa. Like how breathing is important to a person…. Like that you’re important to me alagiiii😘😘😘😘😘. If you’re love in the air then ill be the one breathing it daily because it is what makes me alive alagiiiii😘😘😘😘😘😘🫂🫂🫂
+
+
+
+Thangamae your love is like the ink in a pen dii because an ink pen is of no use when there is no ink in it and it can’t even able to write without the ink dii alagiii. The ink gives the main purpose and life to the pen to write and with that help of the ink the pen writes non stop poems, stories, a novel , a love story, a film and what not…… until the last drop of ink the pen can able to write some beautiful chapters and once the ink is finished then again the pen is of no use kuttu. Like that your love is like the ink to me so with it i can go and achieve different stages and will reach more and more heights dii thangoooo with you and you’re the purpose im living and without you ill be of no use like the pen kuttu……. like until your love last ill be shining and will make histories in life with you diiii😘😘😘😘😘😘. You’re the ink who make alive like the pen and with the help of you only i can able to write beautiful beautiful chapters for us and live a beautiful life di thanga pullaaa😘😘😘😘😘😘😘
+
+
+
+Kuttu my love is like the comforter thango you know la how it protects our body from the cold outside and whenever we get inside the comforter we can feel the warmth and we will feel like safe and comfortable and it does protect our body from dust, insects etc. and inside the comforter you can sleep peacefully without worrying anything.Like that my love will also protect you from everything and it makes you feel warm and safe inside me and it gives you the comfort you need and you can always trust on my love di alagiiii and inside me you can just relax and sleep peacefully without any worries because i am there outside to protect you from everything dii alagiiii😘😘😘😘. Inside me you can touch and feel everything and it gives you comfort and we call cuddle and sleep all day for the rest of our lives😘😘😘😘😘🫣🫣🫣🫣🫣
+
+
+
+
+Kuttuuu my love is like the metti alagii that womens wear it in their index toe la after the marriage….like it gives the women that she is assured by the man and will keep her safe by the man till the last breath and she literally belongs to him. Like that I will always assure you no matter what ill be on your side even if the world is against you kuttu ma and ill will protect and keep you safe from everything and i will make you feel that like literally you belong to me and no one can’t even replace me in your life andha maari na unna paathupa di mayiluuuuu and ill always be in your feet like that metti di because the art of being in your loved one feet is just another feeling di mayiluuuuu…..literally a boy turns into a man when he totally admitted into her and be surrendered by her feet and its not because of fear but only because of respect he has for their women and love literally of pure love maaa😘😘😘😘😘. I love to be surrounded and surrendered by your feet for rest of my life dii alagiiii and love you till the moon and back di kuttuuu maaaaa😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂
+
+
+
+Alagiiii my love is like the rainbow thangamaeeee you know laaa how rainbows look beautiful in the sky and it occurs when both rain and sun comes to contact and it just appears for few mins and make the sky beautiful and will leave. Like that my love will be as beautiful as the rainbow kuttu ma and it will make your life soo beautiful and as i said below the rainbow will form only when sun and rain comes together la so like that when you and me combined together only a beautiful life will be formed like the rainbow kuttu maaa😘😘😘😘. And you know la there are different reasons behind every colour like…. Red for life and passion…. like how beautiful we’ll lead a life together and how passionate we will be in our lives, Orange for healing and creativity… like how we’ll heal each other in tough situations and keep us protected together and being creative in our lifestyle and fashion, Yellow for happiness and positivity….. like how we will stay happy in every situation like no matter what we both want to see each other happy and being positive in every situation we face, Green for
+Growth and renewal….. like how we’ll grow together in life by helping each other and seeing each other proud and renewing ourselves with good vibes, Blue for calmness and trust…. Like how we have trust for each other and handling every situation calmly and not being stressed about anything, Indigo for awareness and spirituality….. like how we will be aware of each and every situation and being aware of evil eyes around us and keeping them away from our lives and we both being believed in god because he the reason we are like this together in the most beautiful and romantic way and being loved by each to the core like we both know that we will life without each other and finally the colour Violet for imagination and royalty….. like how we imagined our life for the next 85+ years and we have lots and lots of responsibilities to make it happen di mayiluuuuu and Royalty will automatically comes to us by the lifestyle we gonna live in future and ne vaaa di unna naa Raani maari paathura en kuttu maaaa. Like the rainbow our love will achieve everything we wish for di mayiluuuuu 😘😘😘😘😘🫂🫂🫂. And just one change di alagiii like im not the rainbow who comes in your life for fews mins and make you feel happy and beautiful and leave…. I will stay in your life like a permanent rainbow and be there with you at each and every situation and will make everything best for you and keep you happy always diiii kuttuuu maaaa😘😘😘😘😘😘😘🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+Kuttu maa my love is like all amma’s love dii like you know laaa how amma love their children without having any expectations on them and their love is soo selfless that they won’t even care for themselves and do everything for their children’s and they will sacrifice anything for them to make see their child happy…… like that my love for you is always selfless kuttu maa without any expectations and I would sacrifice anything in this world for you to be happy and thats all i need alagiii. I will take care of you like my baby and i will always treat you with care, happiness, respect, and with pure whole hearted love😘😘😘😘. And you know how much i love my amma and now you’re the one who i love the most in this world and I would say that proudly diii en thangamaeeee because neenga dhan di en amma ippo🥹🥹🥹🥹🥹🥹🫂🫂🫂🫂🫂😘😘😘😘😘😘
+
+
+
+Thangamaeee your love is like Perfect I mean just perfect diii….. perfect is know for everything and anything in this world/ universe is as good as possible and its just make us complete di alagiiii…. Like that your love makes me complete and it’s just as perfect as it should be and what else i need in this world other than you and your love kuttu maaaaa😘😘😘😘😘😘😘. You’re just perfect for me and I would born in every other universe were you will be born and make you my perfect pondattiii diii😘😘😘😘😘😘😘😘ummmaaaaaaaaa🫂🫂🫂🤌🤌🤌😘😘😘😘😘
+
+
+
+Kuttu ma you’re like an angel to me alagiii like literally the god saw my bad phase and he sent one beautiful angel from heaven to me and thats you alagiiii because you’ve changed me literally like never before and omgg im soo sooo lucky to have you in my life dii pattu and i will love you soo much that even the god would be soo proud that my definition of love will the purest of all nu.
+Thank you coming into my life and loving me like i always wanted to di mayiluuuu😘😘😘😘. You’re the most precious gift that god sent me soo now its my responsibility and pleasure to make you the happiest girl in this whole universe and treat you with all the love and care you deserve dii kuttu and no matter what indha paiyan unnaku irupa in all situations diii soo you can always relay on me diii pattuuuuu. Love you sooooooooo much diiii mayiluuuuuu and like those lines maari dhan venduna saamy yalla varama thandhaa thuna nee dhan😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂
+
+
+Kuttu ma my love is like the ocean diii like you know la how big and the deep is the ocean nu and its soo pleasant and gives us calm vibes kuttu. Like that my love for is soo deep that no one will ever reach that place like how you reached in my heart and its soo big that the whole solar system and the universe will get vanished inside it because my love is that much bigger than dii mayiluuuuu😘😘😘😘. And my love will make you feel calm and pleasant in every chaotic moments and it will always protect you kuttuuu from everything 😘😘😘😘. Your my ocean diii kuttu and i would love to drown inside you and get deep deep inside and explore each and every bit of you alagiiiiii😘😘😘😘😘😘🫂🫂🫂🫂❤️❤️❤️❤️❤️
+
+
+
+Kutty ma my love is like the shoe dii like you know la ppl won’t even care about their feet once they wear the shoe or chappal because by inbuilt they will know that by wearing it I won’t get hurt by anything nu like they trust it blindly and wear it. Like that you can trust my love blindly kutty because it will make you feel happy and it will do the things that you like and my only aim is to make you the happiest person on the whole universe and provide you only the best. So I will always be around your feet dhan di alagii like I will protect you from everything like the shoe and I will always take all the harm that comes from everywhere and I won’t let it feel or hurt you and I will always make you grow higher and higher in life di pattuu. I would love to spend my rest of my lifetime under your feet and serve you most care, dignity	, respect and love diii kuttu maaa😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂
+
+
+
+Kuttu my love is a sweet dii like you know la for each and every good news or for every good events happening in our life always starts with a sweet dii mayiluuu. Like that my love will always be with you on each and every phase and it will make you soo happy and you would feel like to eat me everyday 🫣 because my love is soo sweet and no matter what each and everything in your life my love will always be with you and support you through all ups and downs di kuttu maaa😘😘😘😘😘. You’re my sweet diiii and I would never want to stop eating you kuttuuuuuu😘😘😘😘😘🫣🫣🫣🫂🫂🫂🫂🫂
+
+
+Kuttu ma your love is a gold kutty like you know la how much ppl value the gold ornament and how ppl like it to wear daily and its like a pride to ppl. Like that your love makes me shine like a gold kuttu and i will proudly wear and show it in public with pride dii because you’re the only one matters to me in this whole world alagiiii sooo I don’t even care about others. The value of gold may vary from time to time but for me your love is always constant and day by day its keeps on increasing on me dhan…. Omgggg idk what i did to get you alagiiii just blessed avalodhan. You made me like a gold ornament kuttu like i am shining and i can feel my worth now its all because of your love dhan alagiii only your love towards meee🥹🥹🥹🥹🥹❤️❤️❤️❤️❤️❤️❤️😘😘😘😘😘😘😘😘😘😘😘
+
+
+
+Thangamaeee ppl used to ask me many questions which i don’t have the answer before di like they ask have you seen god? Do any magical things happened in your life? Have you ever loved someone sooo deep that you will feel you can’t live without them? Have you been loved the same way by the ppl whom you give all your love to? Do you experienced any miracles? Who is the most prettiest person you ever met? Which girl has the most beautiful eyes? Have you met someone who has the purest heart? Have you been with someone who always supports and be there for you in all situations? Have you ever felt you’re the important person to them? How will you react with you marry your love of your life? And finally ppl used to ask me before like Do you love someone in you life?. And for all the questions below i got just the perfect answer now which is YOU diii alagiii like only You you you you you. You’ve been the answer my all questions which were asked to me and thaaaa now i have the answer di kuttu and now i will proudly and happily say to all that its YOU nu😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+நானும் அவளும் என்பதே விட அவளும் நானும் சொல்வதே அழகு. எனென்றால் அவள் இதயத்தில் நான் வழுகிறேன் ஒரு சிறிய பூ போல, நான் மலர்கிறேன் என்றால் அதரிக்கு அவள் மட்டும் தான் காரணம். இனி வரும் ஒரு ஒரு போர்க்களமும் அவளும் நானும் செறிந்து மலர்வும் ஒரு அழகான பூதோடமாய்.😘😘😘😘😘❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+Thangamaeee your love is like the mirror dii alagiiii like for me i strongly believed that beauty not comes from face kuttu it is the mirror reflection of how you are inside the heart so it reflects how good you are outside and in that way i initially thought you look beautiful outside kuttu but then later i came to know that your heart is the beautiful of all because you have a purest heart di kuttu ma like idk how many ppl will it because you won’t even try to hurt others even though when you’re hurt by them like na ennayo include panni dhan soldra kuttu like literally no one will have that kind of heart alagiiii but you doo and im blessed to be yours diiiii😘😘😘😘😘😘😘😘. Your heart made me think twice that which part is soo beautiful in you the outer part or the inner part and i say you as a whole person you’re just amazing and beautiful in all your own ways and i love you to the coree kuttuu maaaaaaa😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂
+
+
+
+கூட்டு உன்னைப்போல் ஒருத்தியை நான் பார்த்ததில்லை இந்த உலகத்தில், எனென்றால் உன்னை போல் யாரும் அதிகமாக என் மேல் பாசம் காமிக்க வில்லை அதை போல யாரும் என் மேல உன்னை போல் கோபம் காமிக்க வில்லை, நான் கோவத்தை அன்பு என்று தான் பகிரேன். உரிமை எங்கு இருக்கோ அங்கு தான் கோபம் வரும்.  நான் உன்னை கேட்பது ஒன்றுதான் இதே போல கடைசி வரை என்கூட மட்டும் நீ அதிகமாய் கோபம்வும் மற்றும் பாசமும் காமிக்க வேண்டும் அதை நான் பார்த்து ரசிக்க வேண்டும் என் அழகியே. 😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂
+
+
+
+
+Awwwwwwww kuttu maaa every men will ask for a beautiful wife as their partner but for me god sent a beautiful wife who gives all the love at once like mothers care, fathers affection, siblings love, close friendship bonds and what not alagiiii……you give me all the care and love in all the forms and what else i need in this world kuttu😘😘😘😘😘😘😘. You’re the reason im happy and you’re the one who made me realise what love is and this is what i am being missed for a long time and ig it was worth it because now im being loved by a person who is just as perfect as it could be and I don’t even want or care about others because you’re the one i need now and forever in my life kuttuuuu maaaaaaaaa😘😘😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂
+
+
+
+அழகி நீ இன்றி நான் இல்லை , நீ இன்றி என் வாழ்வு இல்லை , நீ இன்றி என் உயிர் இல்லை , நீ இன்றி என் உலகம் இல்லையடி. நான் வாழும் ஒரு ஒரு நொடியும் உன் அசைவினில் தான் அழகி. நீ இன்றி இங்கு நான் இல்லையடி.😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+
+
+Kuttu you’re love is like a pearl dii alagiiii like you know la how beautiful the pearl looks in the inside but to get the pearl first we should open the outer shell carefully to get the pearl. Like that in first you’re like the outer shell to me kutty because you are not sure about the love and you’re not sure whether I was the man to you or not…. Like you were in dilemma so i had to carefully open your heart with all my love so that you can give me your beautiful love that is the pearl and eventually after all the trust you had in me and especially you believed me that im the person for you nu and then when you give the pearl to me omggggg this man just got shattered by the amount of love you have for me and kuttuu literally im blessed to have you and your love and care gave me more and more responsibilities to take care of you and i will do it till my last breath. You’re my beautiful pearl kuttuu and i will protect you with all my life di alagiii 😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+
+Kuttuu you are like a gravity for me dii like you know la without gravity we can’t live I mean when there is no gravity for .0000001 sec also the world will totally get collapsed and destroyed. Like that kuttu, neenga illama i will be destroyed in seconds di maa and you are my gravity who hold my bits and pieces together and you’re the reason im standing strong di alagiii and without you i will also get collapsed like how earth will without gravity. Everyone in this world needs gravity to live but you are the gravity to my world and universe dii alagiiiiii😘😘😘😘😘❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+Kuttu maa you’re like a medicine to me dii like a bandage to all my wounds but the thing is you never caused anything to me like you just never did anything to me but you’ve always been my medicine alagiii. If my path goes sideways you are always there to make it right and if i gonna make any bad decisions you are always be there to correct me and you have always been my healing soul kuttu and whatever happens to me you’re the only one i come to and you’ve always healed me alagiiiii. You’re my healing soul and I would always be healed by you whenever i get wounded and as you always say you’re my guardian angel dii alagiiiiii and im blessed to have you kuttu maaa😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🫂🫂🥹🥹🥹🥹🥹🥹
+
+
+Kuttu maa you’re the world i live ,breathe and survive in diii alagiiiii. Because in this world only I’ve been loved soo much and taken care like a babyyy and everything I wished for in a life is happening here di alagiiiii sooo you’re the world I waited for soo soo sooo long to be lived in and yea now im peacefully living in it diii thangamaeeee. And I don’t ever ever ever wanted to leave this world because this is where I belong to and this what makes me happy dii. You are my world kuttu ma and i will live in it forever until my last breath di kuttu🥹🥹🥹🥹🥹🥹😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+
+Kuttu ma in my life i was never sure about anything di like making life decisions or like im not sure about what i want in life and will it be good for me appidinu i will be thinking but my life la first time ennaku onnu sure ah venonu iruindadu neenga dhan kuttu like i am infinity times sure that i want you in my lifetime because neenga na ennaku avalo pudikum mayiluuuuu like rombo romboo rombooooooooooooooooooo pudikum kuttu maaaaa. In my life you’re the one and only decision I made without even a second thought kuttu because neenga ennaku saamy di alagiiiii. In this and coming lifetime I want you and only you kuttu ma as my partner and i will shower all my love in all the lifetime kuttu😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+
+Kuttu ma you’re like a storm to me di alagiii like you just been calm before the storm and then washed me away fully with your love diii alagiiiii like I didn’t except the storm to be this much strong which made me up side down like im talking about your love diii thangamaee like it literally flipped me up and im still struck in the storm only I don’t ever want to come out from it because this love is carrying me to places which i never ever felt in my life and day by day im getting hit by the storm even harder di kuttuuu. I love to be in your storm aka you love because thats where i belong and keep on producing the high winds on me and make me fly in that storm di kuttuuuuu😘😘😘😘😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+Alagiiiii your love is those cute tamil letters di maa like you know la how beautiful the language tamil is and when each and every word told in Tamil it just gives or lets say defines the beauty to another’s lvl like how your love takes me to another level. Like pronouncing the words in tamil itself produces a beautiful meaning laa andha maari neenga oru azhaga kaaviyam di ennaku like ennadhan english la quote sonnalo tamil pola varadu andha maari ennadhan indha ulagathula kodi ponnuinga iruindalum ungala porom yarrum illa thangamaeeee ennaku because neenga ennakunu porandava and ne ennaku kadacha varam di kuttuu and na ungala kankalangama vechupa kadasi varaa like how the Tamil language is been there for million years and still gonna be there for another trillion years and no one forgets it…. Like that i will take care of you in all the coming universe and you will never get ols kuttu like the language…. You just stand top of all. We can never erase Tamil language from the universe like how I won’t erase you in my heart becoming you’re my heart and soul and enno ethana varsham and ethana jenmam aanalo no one can erase you from me dii alagiiiiii😘😘😘😘😘😘😘😘😘😘🤌🤌🤌🤌🤌🤌🤌🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+
+Kuttu ma you are like a addiction to me thangamaee like literally an addiction where i can imagine anything else in life but only you just you di maaa😘😘😘😘😘. Like im addicted to your love, care, happiness, your childish behaviour, eyes, lips, hips,buns, ears, moles, chocolate chips, strawberry like literally each and every part of your body im addicted to kuttu. I love this addiction soo soo sooo much that I wanted to get addicted more in a way that there is no way out of it I mean there should be no cure to this addiction. You are my drug where im addicted to and you will be totally infused on my like a drug inside my body and i will literally enjoy each and every bit of your drug which gives pleasure to me🫣🫣🫣🫣🫣👅👅👅👅😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️❤️❤️🤌🤌🤌🤌🤌🤌
+
+
+
+Kuttuuu en alagiiii enna di soldradu naanu like wherever i go, whatever i see, whoever i meet , whatever i do….. it all just makes me remind you dii thangamaee i mean in my life i never thought about a person this much in my mind and heart like even including my mom like no one kuttu but ippo neenga matto dhan en thought la irukingaaa like azhgaaa oru sela polaaa. I mean im just lucky to have nu soldratha illa its all a gift from universe nu soldratha therla but one thing i can understand that you are my answers to all my prayers and a meaning to my meaningless life di alagiii. No matter what happens in this universe in this lifetime, i will just hold your hands tight and never leave you for anything and will shower all my love to you and keep on seeing you live happily with me for the rest of our lives di maa.😘😘😘😘😘❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂❤️❤️😘😘😘😘😘🤌🤌🤌🤌🥹🥹🥹🥹🥹🥹🥹
+
+
+
+Kuttu im not sure whether the earth is rotating or not……. or neither the whole solar system rotates around the sun…. Who knows it can all be a myth that we believe but you know what is not a myth that my heart revolves around you infinity times and every time it revolves it just gets more and more attracted towards you and the connection btw us gets stronger day by day kuttu maaa. Like we came to a point where our each heart cannot be without each other and thats what makes it special dii alagiiii. And you know la kuttu maaa that you’re the world im living in so I would like to be there forever dii and my heart keeps on revolving around you and make it beautiful di kuttu maaaa.😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+
+Kuttu ma your love is like a radiation to me like it instantly attacked my heart and killed it and after that attack omg nothing is more beautiful than that because your love is soo pure that nothing in this world can be replaced with it and you have the beautiful heart di alagiii and you know when there is a beautiful and pure heart obviously ppl around them also will feel the purest love which comes from them and infinity times yes you have the purest soul alagii i mean wow never ever in my life ive seen someone with purest soul that doesn’t even harm anything. Kuttu ma no matter what happens just be like this di alagiii like neenga neengala iruinga and do not change for anyone even including me because you are what you are and no one can change it seriya but few may test it but you can easily beat them with your powerful heart alagii. I love loving your beautiful soul di kuttu maaaaaaa😘😘😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂
+
+
+
+Alagiiii……literally you’re the meaning of the words itself kuttu maaa like beautiful as it could ever be and I think god created all girls unattractive because no one can stand a chance against you and literally god said she’s the one im gonna produce more beautifully than ever. I mean not only beautiful in appearance but also have beautiful heart, soul, caringness, protectiveness and literally beautiful in every way kuttu maaa. I love your care towards me because you act like amma to me and omg you have no idea how I enjoy and love it because i feel when there is more love to a person the act of being reprimand is also love dhan kuttu. Kuttu maaa you’re always be my beautiful partner, wife, pondatti, best friend in this world and in coming universe also. I love my beautiful angel who god sent to me….. no sorry she is the GOD to meee😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+
+Kuttu ma you know la how river runs to the sea and the winds run to the sky….. like that all parts of me and my love runs back to you every time di alagiii because for me there is no place to go in this world other than you di thangamee. As I say all the time you’re my world and i live in it peacefully without caring about anything but just giving all love in that world and making it beautiful. There is no place for me to hide anything to you kuttu because you know about me and you are the person who making my life move so you’re the one who makes me as a person who is being loved. My always wish will be that …..till my last breath I would love to be in your world and always come to you at the end of the day no matter what.😘😘😘😘😘😘😘😘😘🫂🫂🫂🫂🫂🫂🫂🫂❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+Kuttu maa in this world no one more important that you and nothing in important than you di alagiii because the life im gonna live is yours di kuttu like im totally yours and for me all that matters is you dhan kuttu only you. So idc whatever it takes to get you i will breakdown the whole universe to get you and make you mine(p.s you’re already mine dhan but still soldra) and no matter what you wish for di alagiii ill be there to make it happen for you and no matter what is costs me because your happiness dhan is important for me and nothing else make me happy than seeing my girl happy. I love you from moon and back diiiiii and you’re my home, my safe place and my everything 😘😘😘😘😘😘😘😘😘🥹🥹🥹🥹🥹🥹🥹🥹🥹😘❤️❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+
+Kuttu ma i think in my whole life the dictionary taught me the wrong meaning for the words dii like Happy, sad, sweet, blushing, beautiful, god, goddess, gorgeous, caring, cute, possessive, funny, protection, world, universe, moon, amma, appa, friends, girlfriend, sister, brother, happy Place, home, peace, calm, attractive, birth, death, laugh and love and many more kuttu because for me all this means only one thing di alagiii and its YOU because you’re my everything for me in my life.🥹🥹🥹🥹🥹🥹😘😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️❤️🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂
+
+
+
+Alagiiiii i still wonder whether im living in a dream world or reality because the amount of love that has been received at my end is just unimaginable kuttu because neenga enna avaloo azhaga paathukuringa like literally kolantha maari di alagiii adhan soldra i still can’t believe that im in reality nu. Like my whole life had been changed upside down and it became beautiful just because of you di maa only youuuu. So im the most luckiest person on earth because i have a women like you who gives me unconditional love and support for my career. I can’t wait to life my whole life with you kuttu maaaa….. vaaa di alagiii seekarama kalyanam pannikittu majaaa va vazhalam😘😘😘😘😘😘😘🫂🫂🫂🫂❤️❤️❤️❤️💋💋💋💋💋💋
+
+
+
+
+Alagiiii i promise that……I will not only love you this moment or this second nor this hour or this day or one month or one year or 10years but for my rest of my life i will love you truly deeply and madly di maaaa because you’re the one who is everything to me🥹🥹🥹🥹🥹🥹😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+
+
+
+Kuttu maaaa even the god will be jealous of your beauty di pattu because you’re just the perfect one in this whole universe to me i mean like what are the odds of that di neeyae sollu like in this whole universe it is very very rare to find out perfect match but in our case we found but still we had to go through our testing at first but yea eventually we found la kuttu maaa. Like you’re my best life decision that i ever made and the fact is I didn’t choose it di it chose me like neenga dhan enna choose panninga kuttu adhuku na always grateful to you di maaa like neenga dhan en life la kadhacha periya blessing di alagiiiiii😘😘😘😘😘😘😘😘😘😘😘❤️❤️❤️❤️❤️❤️❤️🥹🥹🥹🥹🥹🥹🥹🥹
+
+
+
+Thangamaeee i never thought that i will love a person this much like how i love you di pattu i mean ig you only gave me the definition of love and taught me what love is and how love will feel like nuu. Literally i feel like i am around million beautiful flowers when i am with you di and gives me million butterflies feel in my stomach and literally im not myself im just flying in the air di maa all because of your beautiful love and care dhan kuttu. All i want in this love and care till my last day with you di maaa avalodhan venum ennaku nothing else di kuttu🥹🥹🥹🥹🥹❤️❤️❤️❤️❤️❤️❤️❤️😘😘😘😘😘😘😘😘😘
+
+`;
+  // ===========================================
+
+  const container = document.getElementById("quotesContainer");
+
+  const splitQuotes = rawQuotes
+    .split(/\n\s*\n/)   // split on empty lines
+    .map(q => q.trim())
+    .filter(q => q.length > 0);
+
+  splitQuotes.forEach(quote => {
+    const div = document.createElement("div");
+    div.className = "quote-card";
+    div.innerText = quote;
+    container.appendChild(div);
+  });
+
+  // ===== Music Continuation =====
+  const music = document.getElementById("bgMusic");
+
+  window.addEventListener("load", function () {
+    const savedTime = localStorage.getItem("musicTime");
+    if (savedTime) {
+      music.currentTime = savedTime;
+    }
+  });
+
+  window.addEventListener("beforeunload", function () {
+    localStorage.setItem("musicTime", music.currentTime);
+  });
+</script>
+
+</body>
+</html>

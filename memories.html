@@ -73,15 +73,21 @@ h1 {
   font-size: 20px;
   border-radius: 30px;
   text-decoration: none;
-  background: linear-gradient(45deg, #ff66b2, #ff99cc);
   color: white;
   font-weight: bold;
   transition: 0.3s;
   display: inline-block;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff1493, #ff69b4);
+  animation: heartbeat 1.5s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
 }
 
 .quotes-btn:hover {
-  transform: scale(1.1);
+  animation: none;
+  transform: scale(1.15);
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.7);
 }
 
 .backBtn {
@@ -121,6 +127,42 @@ h1 {
   bottom: 50px;
 }
 
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.love-btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff1493, #ff69b4);
+  animation: heartbeat 1.5s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.love-btn:hover {
+  animation: none;
+  transform: scale(1.15);
+  box-shadow: 0 10px 30px rgba(255, 20, 147, 0.7);
+}
+
 </style>
 </head>
 
@@ -146,10 +188,19 @@ h1 {
   <div class="photo"><img src="images/p14.jpg" alt="Memory 14"></div>
   <div class="photo"><img src="images/p15.jpg" alt="Memory 15"></div>
   <div class="photo"><img src="images/p16.jpg" alt="Memory 16"></div>
+  <div class="photo"><img src="images/p17.jpg" alt="Memory 17"></div>
+  <div class="photo"><img src="images/p18.jpg" alt="Memory 18"></div>
+  <div class="photo"><img src="images/p19.jpg" alt="Memory 19"></div>
+  <div class="photo"><img src="images/p20.jpg" alt="Memory 20"></div>
 </div>
 
-<div style="text-align:center; margin-top:40px;">
+<!-- <div style="text-align:center; margin-top:40px;">
   <a href="quotes.html" class="quotes-btn">Read Our Love Quotes 💌</a>
+</div> -->
+
+<div class="buttons-container">
+  <a href="quotes.html" class="quotes-btn">Read Our Love Quotes 💌</a>
+  <a href="love-things.html" class="love-btn">Things You LOVE 💕✨</a>
 </div>
 
 <a href="index.html">
